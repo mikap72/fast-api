@@ -1,0 +1,3 @@
+MongoDB to Windows (locally, you may want to use Docker, though)
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/
+

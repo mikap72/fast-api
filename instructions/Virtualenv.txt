@@ -1,0 +1,88 @@
+Virtual environment
+https://www.youtube.com/watch?v=N5vscPTWKOk
+
+1. Create a virtual environment
+
+  mkdir \repos\fast-api
+  cd \repos\fast-api 
+  pip install virtualenv
+  virutalenv FastApi
+
+2. Activate environment
+
+  C:\Environments\FastApi\Scripts\activate
+  
+3. Exit virtual environment
+  deactivate
+ 
+4. Configure VS Code project for using this virtual environment automatically
+https://code.visualstudio.com/docs/python/environments
+
+4.1 Open your project folder in VS Code and create simple Python file index.py
+
+	import os
+
+	print("Hello World")
+ 
+4.2 Select interpreter (click Python in left bottom)
+
+Manually select foder
+	C:\Environments\FastApi\
+
+launch.json should look like this  ( add     "python.terminal.activateEnvironment": true,  line )
+
+	{
+		"workbench.editorAssociations": {
+			"*.ipynb": "jupyter-notebook"
+		},
+		"python.terminal.activateEnvironment": true,
+
+		"python.defaultInterpreterPath": "C:\\Environments\\FastApi\\",
+		"launch": {
+			"configurations": [
+
+			]
+		}
+	}
+	
+Run>>Start Debugging should now result to successfull run for app.py
+
+"
+https://aka.ms/powershell
+Type 'help' to get help.
+
+   A new PowerShell stable release is available: v7.2.3 
+   Upgrade now, or check out the release page at:       
+     https://aka.ms/PowerShell-Release?tag=v7.2.3       
+
+PS C:\Users\mikap> & C:/Environments/FastApi/Scripts/Activate.ps1
+(FastApi) PS C:\Users\mikap>  & 'C:\Environments\FastApi\Scripts\python.exe' 'c:\Users\mikap\.vscode\extensions\ms-python.python-2021.10.1365161279\pythonFiles\lib\python\debugpy\launcher' '50938' '--' 'c:\Users\mikap\import os.py' 
+Hello World
+(FastApi) PS C:\Users\mikap>
+"
+
+and pip freeze shows no pagages installed. Upgrade pip in the environment
+
+  C:\Environments\FastApi\Scripts\python.exe -m pip install --upgrade pip 
+
+5. Now you can start installing required packages to the environment
+
+  pip install fastapi pymongo uvicorn
+ 
+6. pip freeze output should look similar to this
+
+"
+anyio==3.6.1
+asgiref==3.5.1
+click==8.1.3
+colorama==0.4.4
+fastapi==0.77.1
+h11==0.13.0
+idna==3.3
+pydantic==1.9.0
+pymongo==4.1.1
+sniffio==1.2.0
+starlette==0.19.1
+typing_extensions==4.2.0
+uvicorn==0.17.6
+"
